@@ -1,0 +1,36 @@
+body {
+    background-image: url(../images/hypnotize.png);
+}
+
+.titleImageContainer .centerImg {
+    display: block;
+    margin: 0 auto;
+}
+
+#start-game-text {
+    text-align: right;
+    padding-top: 20px;
+    padding-right: 40px;
+}
+#current-word-text {
+    text-align: right;
+    padding-right: 40px;
+}
+
+#word-placeholder {
+    text-align: right;
+    padding-right: 40px;
+}
+
+.game-container {
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+    background: #ccc;
+}
+
+#guessed-letters-text {
+    text-align: right;
+    padding-right: 40px;
+}
