@@ -4,7 +4,8 @@ body {
 
 .titleImageContainer .centerImg {
     display: block;
-    margin: 0 auto;
+    margin: 20px auto;
+    
 }
 
 #start-game-text {
@@ -22,12 +23,27 @@ body {
     padding-right: 40px;
 }
 
-.game-container {
+.game-container-hints {
     display: block;
+    float: left;
     margin: 0 auto;
-    width: 600px;
+    width: 400px;
     height: 600px;
     background: #ccc;
+    margin-left: 250px;
+}
+.game-container-guesses {
+    display: block;
+    float: right;
+    margin: 0 auto;
+    width: 400px;
+    height: 600px;
+    background: #ccc;
+    margin-right: 250px;
+}
+#game-hints-text {
+    text-align: center;
+    padding: 20px;
 }
 
 #guessed-letters-text {
