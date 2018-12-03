@@ -62,15 +62,24 @@ function rePlay() {
 
     //loop through the random movie array and place underscores where ever there are characters
     for(var i = 0; i < randMovieSelection.length; i++) {
+
+       //for movies that are more than one word, this creates a space betwwn the dashes
+       if(randMovieSelection[i] === " ")  {
+        letterPlaceholders.push(String.fromCharCode(160));
+        letterWins= 1;
+        } else {
         letterPlaceholders[i] = "_";
         }
+
     wordPlaceholder.textContent = letterPlaceholders.join(" ");
 
     //resetting the on screen data
     remainingGuesses = 10;
+    wrongGuessedLetters = [];
     currentWordText.textContent = "Current Word";
     guessedLettersText.textContent = wrongGuessedLetters.join(" ");
     remainingGuessesText.textContent = "Remaining Guesses: " + remainingGuesses;
+    }
 }
 
 // ----------MAIN GAME----------
@@ -92,18 +101,20 @@ document.onkeyup = function(event) {
     if (randMovieSelection.indexOf(userGuess) > -1) {
         
        for(var j = 0; j < randMovieSelection.length; j++) { 
-        
+
             if(randMovieSelection[j] === userGuess) {
                 letterPlaceholders[j] = userGuess;
                 wordPlaceholder.textContent = letterPlaceholders.join(" ");
                 letterWins++; 
             }
+    
             if(letterWins === randMovieSelection.length){
                 wins++
                 winsText.textContent = "wins: " + wins;
                  console.log("you won!");
                  rePlay();
             }
+
         }
     } else {
             wrongGuessedLetters.push(userGuess); 
