@@ -1,13 +1,20 @@
 var startGameText = document.getElementById("start-game-text");
 var wordPlaceholder = document.getElementById("word-placeholder");
-var currentWord = document.getElementById("current-word-text");
+var currentWordText = document.getElementById("current-word-text");
 var guessedLettersText = document.getElementById("guessed-letters-text");
+var winsText = document.getElementById("wins-text");
+var remainingGuessesText = document.getElementById("remaining-guesses-text");
+var gameOverText = document.getElementById("game-over-text");
+var refreshText = document.getElementById("refresh-text");
 
 var wins = 0;
 var movieChoices = ["jaws","titanic", "goodfellas"];
 var guessedLetters = [];
 var letterPlaceholders = [];
 var randMovieSelection = movieChoices[Math.floor(Math.random() * movieChoices.length)];
+var letterWins = 0;
+var remainingGuesses = 10;
+var didWin = false;
 
 
 
@@ -22,9 +29,25 @@ function onPageLoad() {
 
     guessedLetters = [];
 
-    currentWord.textContent = "Current Word";
+    currentWordText.textContent = "Current Word";
+    remainingGuessesText.textContent = "Remaining Guesses: " + remainingGuesses;
+
+    winsText.textContent = "wins: " 
+
 console.log(randMovieSelection);
 }
+
+
+function youWon() {
+if(letterWins === randMovieSelection.length){
+   wins++
+   winsText.textContent = "wins: " + wins;
+    console.log("you won!");
+}
+}
+
+
+
 
 onPageLoad();
 
@@ -41,13 +64,29 @@ document.onkeyup = function(event) {
             if(randMovieSelection[j] === userGuess) {
                 letterPlaceholders[j] = userGuess;
                 wordPlaceholder.textContent = letterPlaceholders.join(" ");
-            }}}
-             else {
-                guessedLetters.push(userGuess); 
-                console.log("skipping");
-                guessedLettersText.textContent = guessedLetters.join(" ");
+                letterWins++; 
+                youWon();
             }
         }
+    } else {
+                guessedLetters.push(userGuess); 
+                guessedLettersText.textContent = guessedLetters.join(" ");
+                remainingGuesses--
+                remainingGuessesText.textContent = "Remaining Guesses: " + remainingGuesses;
+
+            }  
+            if( remainingGuesses === 0) {
+                gameOverText.textContent = "Game Over";
+                document.onkeyup = null;
+                setTimeout("location.reload(true);", 5000);  
+                refreshText.textContent = "the game will restart in 5 secs";
+                      
+            }
+        }
+        
+       
+           
+        
             
         
     
