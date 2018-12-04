@@ -56,9 +56,14 @@ body {
     background: rgb(236, 216, 102, .9);
     margin-right: 250px;
 }
-#game-hints-text {
+#game-hints-header{
     text-align: center;
     padding: 20px;
+    color: black;
+}
+#game-hints-text {
+    text-align: center;
+    padding: 20px 40px;;
     color: black;
 }
 
