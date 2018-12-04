@@ -9,12 +9,14 @@ var refreshText = document.getElementById("refresh-text");
 var gameHintsText = document.getElementById("game-hints-text");
 
 var wins = 0;
-var movieChoices = ["jaws","titanic", "goodfellas", "matrix", "space jam"];
+var movieChoices = ["jaws","titanic", "goodfellas", "matrix", "space jam", "the lion king", "fight club", "forest gump", "friday", "braveheart"];
 var movieHints = ["Steven Spielberg's breakout hit movie featuring a very large mechanical shark", "This a breakout movie for a young Leo Dicaprio and Kate Winslet", "Hit Scorsese movie staring Robert Dinor, Ray Liota, and Joe Pesci","This movie broke the mold with inovative CGI", "Hit movie storing a NBA star and some famous Looney Tunes"];
 var wrongGuessedLetters = [];
 var letterPlaceholders = [];
 var randMovieSelection = [];
 var letterWins = 0;
+var repeatedLetter = [];
+var repLetterCounter = 0;
 var remainingGuesses = 10;
 
 
@@ -67,6 +69,8 @@ function hintDisplay(){
    }
     }
 */
+
+
 
 function rePlay() {
 
@@ -125,11 +129,13 @@ document.onkeyup = function(event) {
 
             if(randMovieSelection[j] === userGuess) {
                 letterPlaceholders[j] = userGuess;
+        
                 wordPlaceholder.textContent = letterPlaceholders.join(" ");
-                letterWins++; 
+
+                
             }
-    
-            if(letterWins === randMovieSelection.length){
+            //once all the letters have been guessed correctly then you won the word and move to the next word
+            if(letterPlaceholders.indexOf("_") < 0 ) {
                 wins++
                 winsText.textContent = "wins: " + wins;
                  console.log("you won!");

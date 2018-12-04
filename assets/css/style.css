@@ -26,19 +26,21 @@ body {
 .game-container-hints {
     display: block;
     float: left;
+    border: 7px dashed rgb(250, 82, 82, .7);
     margin: 0 auto;
     width: 400px;
-    height: 600px;
-    background: #ccc;
+    height: 400px;
+    background: rgba(24, 24, 24, 0.5);
     margin-left: 250px;
 }
 .game-container-guesses {
     display: block;
+    border: 7px dashed rgb(250, 82, 82, .7);
     float: right;
     margin: 0 auto;
     width: 400px;
-    height: 600px;
-    background: #ccc;
+    height: 400px;
+    background: rgba(24, 24, 24, 0.5);
     margin-right: 250px;
 }
 #game-hints-text {
