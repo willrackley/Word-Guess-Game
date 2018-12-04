@@ -41,7 +41,7 @@ function onPageLoad() {
     //an array to hold all the incorrectly guessed letters
     wrongGuessedLetters = [];
 
-    currentWordText.textContent = "Current Word";
+    //currentWordText.textContent = "Current Word";
     remainingGuessesText.textContent = "Remaining Guesses: " + remainingGuesses;
 
     winsText.textContent = "wins: " 
