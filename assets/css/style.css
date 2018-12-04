@@ -1,10 +1,19 @@
 body {
-    background-image: url(../images/hypnotize.png);
+    background-image: url(../images/lasVegas.jpeg);
+    background-size: cover;
+    font-family: 'Bungee', cursive, 'Times New Roman', Times, serif;
+}
+.titleImageContainer {
+    background: rgb(236, 216, 102);
+    margin:-20px;
+    margin-bottom: 40px;
+    border-bottom: 5px solid #ffffff;
 }
 
 .titleImageContainer .centerImg {
     display: block;
-    margin: 20px auto;
+    margin: 0 auto;
+    margin-top: 20px;
     
 }
 
@@ -12,68 +21,79 @@ body {
     text-align: right;
     padding-top: 20px;
     padding-right: 40px;
+    color: black;
 }
 #current-word-text {
     text-align: right;
     padding-right: 40px;
+    color: black;
 }
 
 #word-placeholder {
     text-align: right;
     padding-right: 40px;
+    color: black;
 }
 
 .game-container-hints {
     display: block;
     float: left;
-    border: 7px dashed rgb(250, 82, 82, .7);
+    border: 2px solid #ffffff;
     margin: 0 auto;
     width: 400px;
     height: 400px;
-    background: rgba(24, 24, 24, 0.5);
+    background: rgb(236, 216, 102, .9);
     margin-left: 250px;
+   
 }
 .game-container-guesses {
     display: block;
-    border: 7px dashed rgb(250, 82, 82, .7);
+    border: 2px solid #ffffff;
     float: right;
     margin: 0 auto;
     width: 400px;
     height: 400px;
-    background: rgba(24, 24, 24, 0.5);
+    background: rgb(236, 216, 102, .9);
     margin-right: 250px;
 }
 #game-hints-text {
     text-align: center;
     padding: 20px;
+    color: black;
 }
 
 #guessed-letters-text {
     text-align: right;
     padding-right: 40px;
+    color: black;
 }
 
 #wins-text {
     text-align: right;
     padding-right: 40px;
+    color: black;
 }
 #guessed-letters-header{
     text-align: right;
     padding-right: 40px;
+    color: black;
 }
 
 #remaining-guesses-text {
     text-align: right;
     padding-right: 40px;
+    color: black;
 }
 
 #game-over-text {
     text-align: right;
     padding-right: 40px;
     font-weight: bold;
+    color: black;
 }
 #refresh-text {
     text-align: right;
     padding-right: 40px;
     font-weight: bold;
+    color: black;
 }

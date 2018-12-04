@@ -9,22 +9,23 @@ var refreshText = document.getElementById("refresh-text");
 var gameHintsText = document.getElementById("game-hints-text");
 
 var wins = 0;
-var movieChoices = ["jaws","titanic", "goodfellas", "matrix", "space jam", "the lion king", "fight club", "forest gump", "friday", "braveheart"];
-var movieHints = ["Steven Spielberg's breakout hit movie featuring a very large mechanical shark", "This a breakout movie for a young Leo Dicaprio and Kate Winslet", "Hit Scorsese movie staring Robert Dinor, Ray Liota, and Joe Pesci","This movie broke the mold with inovative CGI", "Hit movie storing a NBA star and some famous Looney Tunes"];
+var movieChoices = ["jaws", "titanic", "goodfellas", "matrix", "space jam", "the lion king", "fight club", "forrest gump", "braveheart"];
+var movieHints = ["Steven Spielberg's breakout hit movie featuring a very large mechanical shark", "This was a breakout movie for a young Leo Dicaprio and Kate Winslet", "Hit Scorsese movie staring Robert Dinor, Ray Liota, and Joe Pesci","This movie broke the mold with inovative CGI", "Hit movie storing a NBA star and some famous Looney Tunes", "This Disney animated hit featured many different african animals", "This movie featured a cameo by a rock star by the name of Meatloaf", "This movie featured a famous line comparing life and chocolates", "This was an epic war film directed by Mel Gibson"];
 var wrongGuessedLetters = [];
 var letterPlaceholders = [];
 var randMovieSelection = [];
-var letterWins = 0;
-var repeatedLetter = [];
-var repLetterCounter = 0;
 var remainingGuesses = 10;
+var winSound = new Audio("assets/sounds/winChime.mp3");
 
 
 //----------FUNCTIONS-----------  
 
 function onPageLoad() {
+    console.log(movieHints[9]);
+    console.log(movieChoices[9]);
     //chooses a movie from the movieChoices array at random
      randMovieSelection = movieChoices[Math.floor(Math.random() * movieChoices.length)];
+     console.log(randMovieSelection);
     hintDisplay();
 
     //loop through the random movie array and place underscores where ever there are characters
@@ -32,13 +33,9 @@ function onPageLoad() {
         //for movies that are more than one word, this creates a space betwwn the dashes
         if(randMovieSelection[i] === " ")  {
             letterPlaceholders.push(String.fromCharCode(160));
-            letterWins= 1;
-
         } else {
         letterPlaceholders[i] = "_";
         }
-    
-
     wordPlaceholder.textContent = letterPlaceholders.join(" ");
 
     //an array to hold all the incorrectly guessed letters
@@ -61,16 +58,7 @@ function hintDisplay(){
         }
     }
 }
-   /* if(randMovieSelection = movieChoices[0]) {
-        gameHintsText.textContent = movieHints[0];
-       }
-    if(randMovieSelection = movieChoices[1]) {
-        gameHintsText.textContent = movieHints[1];
-   }
-    }
-*/
-
-
+   
 
 function rePlay() {
 
@@ -79,7 +67,7 @@ function rePlay() {
     randMovieSelection = movieChoices[Math.floor(Math.random() * movieChoices.length)];
 
     //resets all variables
-    letterWins = 0;
+    
     letterPlaceholders = [];
 
     
@@ -91,7 +79,6 @@ function rePlay() {
        //for movies that are more than one word, this creates a space betwwn the dashes
        if(randMovieSelection[i] === " ")  {
         letterPlaceholders.push(String.fromCharCode(160));
-        letterWins= 1;
         } else {
         letterPlaceholders[i] = "_";
         }
@@ -113,6 +100,7 @@ onPageLoad();
 
 document.onkeyup = function(event) { 
 
+    startGameText.hidden = true;
     var userGuess = event.key.toLowerCase();
     //makes sure that if an non alphabet key is pressed that it will not have any effect on the game
     if(event.keyCode < 65 || event.keyCode > 90 ){
@@ -126,19 +114,16 @@ document.onkeyup = function(event) {
     if (randMovieSelection.indexOf(userGuess) > -1) {
         
        for(var j = 0; j < randMovieSelection.length; j++) { 
-
+        
             if(randMovieSelection[j] === userGuess) {
                 letterPlaceholders[j] = userGuess;
-        
                 wordPlaceholder.textContent = letterPlaceholders.join(" ");
-
-                
             }
             //once all the letters have been guessed correctly then you won the word and move to the next word
             if(letterPlaceholders.indexOf("_") < 0 ) {
                 wins++
                 winsText.textContent = "wins: " + wins;
-                 console.log("you won!");
+                winSound.play();
                  rePlay();
             }
 
