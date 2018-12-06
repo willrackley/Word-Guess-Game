@@ -101,3 +101,66 @@ body {
     font-weight: bold;
     color: rgb(255, 78, 78);
 }
+
+/*  MEDIA QUERIES */
+
+@media screen and (max-width: 1024px){
+    .game-container-hints {
+        display: block;
+        float: left;
+        border: 4px solid #ffffff;
+        margin: 0 auto;
+        width: 400px;
+        height: 380px;
+        background: rgb(51, 86, 243, .9);
+        margin-left: 50px;
+    }
+
+    .game-container-guesses {
+        margin-right: 50px;
+        height: 380px;
+
+    }
+}
+
+@media screen and (max-width: 768px){
+    .game-container-hints {
+        margin-left: 50px;
+        width: 300px;
+    }
+
+    .game-container-guesses {
+        margin-right: 50px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 640px){
+
+    .titleImageContainer {
+        margin-bottom: 20px;
+    }
+    
+    #game-hints-header{
+     height: 10px;
+    }
+
+    .game-container-hints {
+       margin: 0 auto;
+       float: none;
+       width: 400px;
+       overflow: auto;
+       height: 150px;
+       margin-left: 0;
+       margin-bottom: 10px;
+    }
+
+    .game-container-guesses {
+        margin-right:0;
+        height: 380px;
+        width: 400px;
+    }
+}
+
+
+
