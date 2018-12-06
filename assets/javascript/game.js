@@ -1,3 +1,4 @@
+//Variables for Game text
 var startGameText = document.getElementById("start-game-text");
 var wordPlaceholder = document.getElementById("word-placeholder");
 var currentWordText = document.getElementById("current-word-text");
@@ -8,6 +9,7 @@ var gameOverText = document.getElementById("game-over-text");
 var refreshText = document.getElementById("refresh-text");
 var gameHintsText = document.getElementById("game-hints-text");
 
+//Global Variables
 var wins = 0;
 var movieChoices = ["jaws", "titanic", "goodfellas", "matrix", "space jam", "the lion king", "fight club", "forrest gump", "braveheart"];
 var movieHints = ["Steven Spielberg's breakout hit movie featuring a very large mechanical shark", "This was a breakout movie for a young Leo Dicaprio and Kate Winslet", "Hit Scorsese movie staring Robert Dinor, Ray Liota, and Joe Pesci","This movie broke the mold with inovative CGI", "Hit movie storing a NBA star and some famous Looney Tunes", "This Disney animated hit featured many different african animals", "This movie featured a cameo by a rock star by the name of Meatloaf", "This movie featured a famous line comparing life and chocolates", "This was an epic war film directed by Mel Gibson"];
@@ -20,13 +22,11 @@ var winSound = new Audio("assets/sounds/winChime.mp3");
 
 //----------FUNCTIONS-----------  
 
+//function for when the page is first loaded
 function onPageLoad() {
-    console.log(movieHints[9]);
-    console.log(movieChoices[9]);
     //chooses a movie from the movieChoices array at random
      randMovieSelection = movieChoices[Math.floor(Math.random() * movieChoices.length)];
-     console.log(randMovieSelection);
-    hintDisplay();
+     hintDisplay();
 
     //loop through the random movie array and place underscores where ever there are characters
     for(var i = 0; i < randMovieSelection.length; i++) {
@@ -45,11 +45,10 @@ function onPageLoad() {
     remainingGuessesText.textContent = "Remaining Guesses: " + remainingGuesses;
 
     winsText.textContent = "wins: " 
-
-    console.log(randMovieSelection); 
-}
+    }
 }
 
+//function to display the hint for the word to be guessed
 function hintDisplay(){
     for(i = 0; i < randMovieSelection.length; i++) {
         if(randMovieSelection === movieChoices[i]) {
@@ -59,7 +58,7 @@ function hintDisplay(){
     }
 }
    
-
+//function to replay the game after the intial page load
 function rePlay() {
 
     //hintDisplay();
@@ -67,12 +66,10 @@ function rePlay() {
     randMovieSelection = movieChoices[Math.floor(Math.random() * movieChoices.length)];
 
     //resets all variables
-    
     letterPlaceholders = [];
 
-    
-    console.log(randMovieSelection);
     hintDisplay();
+
     //loop through the random movie array and place underscores where ever there are characters
     for(var i = 0; i < randMovieSelection.length; i++) {
 
@@ -97,19 +94,17 @@ function rePlay() {
 // ----------MAIN GAME----------
 onPageLoad();
 
-
 document.onkeyup = function(event) { 
 
     startGameText.hidden = true;
     var userGuess = event.key.toLowerCase();
+
     //makes sure that if an non alphabet key is pressed that it will not have any effect on the game
     if(event.keyCode < 65 || event.keyCode > 90 ){
         userGuess = " ";
         //conteracts the remaining guesses counter
         remainingGuesses++
     }
-
-    console.log(userGuess);
     
     if (randMovieSelection.indexOf(userGuess) > -1) {
         
