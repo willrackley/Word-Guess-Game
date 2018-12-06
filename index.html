@@ -5,9 +5,10 @@
 </html>
 
     <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         
         <meta charset="UTF-8">
 
@@ -19,28 +20,31 @@
     <body>
 
         <!--displays the title image of the Game-->
-        <div class="titleImageContainer">
-            <img class= centerImg src="assets/images/titleImage.png" alt="Guess That Movie! 90s edition">
+        <div class=" container-fluid titleImageContainer">
+            <img class= "d-block mx-auto centerImg" src="assets/images/titleImage.png" alt="Guess That Movie! 90s edition">
         </div>
 
-        <div class = "game-container-hints">
-            <p id="game-hints-header">Hint</p>
-            <p id="game-hints-text"></p>  
-        </div>
-
-        <!--Game Play Text-->
-        <div class = "game-container-guesses">
-            <p id="start-game-text">PRESS ANY KEY TO START PLAYING</p>
-            <p id="current-word-text">Current Word</p>
-            <p id="word-placeholder"></p>
-            <br>
-            <p id="guessed-letters-header"> Guessed Letters</p>
-            <p id="guessed-letters-text"></p>
-            <br>
-            <p id="remaining-guesses-text"></p>
-            <p id="wins-text"></p>
-            <p id="game-over-text"></p>
-            <p id="refresh-text"></p>
+        <!--Game Play Section-->
+        <div class="container-fluid game-container-hints px-5 mt-3">
+            <div class="row">
+                <div class="col-sm-6 pt-3">
+                    <p id="game-hints-header">Hint</p>
+                    <p id="game-hints-text"></p>  
+                </div>
+                <div class="col-sm-6 pt-3">
+                    <p id="start-game-text">PRESS ANY KEY TO START PLAYING</p>
+                    <p id="current-word-text">Current Word</p>
+                    <p id="word-placeholder"></p>
+                    <br>
+                    <p id="guessed-letters-header"> Guessed Letters</p>
+                    <p id="guessed-letters-text"></p>
+                    <br>
+                    <p id="remaining-guesses-text"></p>
+                    <p id="wins-text"></p>
+                    <p id="game-over-text"></p>
+                    <p id="refresh-text"></p>
+                </div>
+            </div>
         </div>
 
     <!--gaurantees that the DOM is ready to parse the js-->
