@@ -50,6 +50,12 @@ body {
     text-align: right;
     color: #000000;
 }
+
+#losses-text {
+    text-align: right;
+    color: #000000;
+}
+
 #guessed-letters-header{
     text-align: right;
     color: #000000;
