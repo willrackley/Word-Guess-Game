@@ -22,6 +22,7 @@ var wrongGuessedLetters = [];
 var letterPlaceholders = [];
 var remainingGuesses = 10;
 var winSound = new Audio("assets/sounds/winChime.mp3");
+var incorrectSound = new Audio("assets/sounds/incorrectSound.mp3");
 
 
 //----------FUNCTIONS-----------  
@@ -130,10 +131,10 @@ document.onkeyup = function(event) {
             guessedLettersText.textContent = wrongGuessedLetters.join(" ");
             remainingGuesses--
             remainingGuessesText.textContent = "Remaining Guesses: " + remainingGuesses;
-
             }
     if( remainingGuesses === 0) {
         losses++;
+        incorrectSound.play();
         lossesText.textContent = "losses: " + losses;
         rePlay();
     
