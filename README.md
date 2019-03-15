@@ -13,7 +13,7 @@ This is a word guessing game that features dynamically updated HTML and CSS powe
 
 * The user starts each word with 8 letter guesses. If they guess incorrectly then they lose a guess. If they guess correctly then the amount of guesses remaining does not change.
 
-*If the user guesses incorrectly, the incorrect letter is displayed.
+* If the user guesses incorrectly, the incorrect letter is displayed.
 
 * As the game progresses the user's wins and losses are displayed in real time.
 
